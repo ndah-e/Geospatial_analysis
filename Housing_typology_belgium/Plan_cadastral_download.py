@@ -44,8 +44,8 @@ if __name__ == "__main__":
     #url = sys.argv[1]              # the URL from cadastral website that list the cadastral files for each commune
     #output_folder = sys.argv[2]    # output folder to store the downloaded files
 
-    output_folder = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/01-Source/cadastral/"
-    output_folder_others = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/01-Source/"
+    output_folder = "./data/cadastral/"
+    output_folder_others = "./data/"
     url = "https://finances.belgium.be/fr/experts_partenaires/plan-cadastral/lambert-72/2018"
     
     cadastral_df = cadastral_plan_links(url)

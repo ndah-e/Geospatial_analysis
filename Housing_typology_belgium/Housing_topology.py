@@ -373,15 +373,15 @@ if __name__ == '__main__':
     point_of_interest = gpd.GeoDataFrame()
     transport =  gpd.GeoDataFrame()
     if poi_usage == True:
-        poi_file = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/01-Source/belgium-latest-free/gis_osm_pois_a_free_1.shp"
+        poi_file = "./data/gis_osm_pois_a_free_1.shp"
         point_of_interest = gpd.read_file(poi_file)  # free point of interst data
         
-        transport_file = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/01-Source/belgium-latest-free/gis_osm_transport_free_1.shp"
+        transport_file = "./data/gis_osm_transport_free_1.shp"
         transport = gpd.read_file(transport_file)    # free public tranaport
     
     # path to other source files
-    tmp_folder = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/02-Staging/Temp_commune/"
-    cadastral_folder = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/01-Source/cadastral/"
+    tmp_folder = "./data/Temp_commune/"
+    cadastral_folder = "./data/cadastral/"
     
     # dataframe to concatenate across all cities
     outputfiles = []
@@ -402,12 +402,12 @@ if __name__ == '__main__':
     pool.join()
         
     # combined all typology files
-    #housing_typology = pd.DataFrame()
-    #for file in outputfiles:
-    #    tmp_file = pd.read_csv(file)
-    #    housing_typology = pd.concat([tmp_file, housing_typology], axis=1)
+    housing_typology = pd.DataFrame()
+    for file in outputfiles:
+        tmp_file = pd.read_csv(file)
+        housing_typology = pd.concat([tmp_file, housing_typology], axis=1)
         
-    #housing_typo_out = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/02-Staging/housing_typology.csv"
-    #housing_typology.to_csv(housing_typo_out, index=False)
+    housing_typo_out = "./data/housing_typology.csv"
+    housing_typology.to_csv(housing_typo_out, index=False)
     
     print(run_time(start))

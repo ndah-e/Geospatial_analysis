@@ -22,8 +22,8 @@ if __name__ == '__main__':
     
     start = time.time()
     
-    Bpn_CaPa_file = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/01-Source/Toute_la_Belgique/Bpn_CaPa.shp"
-    lambert_file = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/02-Staging/lambert.txt"
+    Bpn_CaPa_file = "./data/Toute_la_Belgique/Bpn_CaPa.shp"
+    lambert_file = "./data/lambert.txt"
     
     #Bpn_CaBu_file = sys.argv[1]    # building shape files
     #Bpn_CaPa_file = sys.argv[2]    # Block shape file
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     Lambert2parcel = pd.DataFrame(join_lam2parcel.head(len(join_lam2parcel)))
     Lambert2parcel.drop(columns=['geometry'], inplace=True)
     
-    lam2par_output = "N:/Solutions/Bisnode_B2CData/Development/Subprojects/Housing_Typology/Data/LastVersion/02-Staging/Lamberts2Parcels.csv"
+    lam2par_output = "./data/Lamberts2Parcels.csv"
     Lambert2parcel.to_csv(lam2par_output, index=False)
        
     print(run_time(start))
